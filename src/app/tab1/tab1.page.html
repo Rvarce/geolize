@@ -33,4 +33,20 @@
       </ion-item>
 
     </ion-list>
+
+    <!-- lita con conexion a rest -->
+   <form #formulario="ngForm" (ngSubmit)="routingAngular()"> 
+      <ion-list lines="nones" >
+        <!-- "let item of viaje" -->
+        <ion-radio-group [(ngModel)]="idViaje" name="idViaje">
+          <ion-item *ngFor="let item of task"> 
+            <!-- {{ item.nombreViaje }} -->
+            {{ item.title }}
+            <ion-radio slot="end" [value]="item.id"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      <ion-button type="submit" expand="full">Iniciar</ion-button>
+    </form>
+    
 </ion-content>

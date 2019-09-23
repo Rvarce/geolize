@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from "@angular/common/http";
 
+//import { AngularFireModule } from '@angular/fire';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

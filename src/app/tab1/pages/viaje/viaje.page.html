@@ -8,6 +8,21 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+<ion-button expand="full" (click)="getAllTask()">getAll</ion-button>
+<ion-button expand="full" (click) = "getTask()">getOne</ion-button>
+<ion-button expand="full" (click) = "createTask()">createOne</ion-button>
+<ion-button expand="full" (click) = "removeTask()">removeOne</ion-button>
+<ion-input placeholder="Usuario" [(ngModel)]="userId"></ion-input>
+<ion-button expand="full" (click) = "getTaskForUser()">getTaskForUser</ion-button>
+
+<ion-list lines="none">
+    <ion-item *ngFor="let item of lista">
+      <ion-icon name="globe" item-start></ion-icon>
+      {{ item.title }}
+    </ion-item>  
+   
+ </ion-list>
+
 
 <p>{{ argumentos }}</p>
 

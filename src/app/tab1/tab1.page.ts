@@ -38,9 +38,9 @@ export class Tab1Page implements OnInit{
   }
 
   //con evento click, con routerLink no es necesario
-  routingAngular(){
+  routingAngular(idItem){
     //alert("¿Desea iniciar este viaje?")
-    console.log(this.idViaje)
-    this.router.navigate(['/pages'])
+    console.log(idItem)
+    this.router.navigate(['/viaje', idItem])
   }
 }

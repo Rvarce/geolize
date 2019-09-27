@@ -16,7 +16,8 @@ lista: Task[]
   constructor(private activeRoute: ActivatedRoute, private taskService: TaskService) { }
 
   ngOnInit() {
-    //this.argumentos = this.activeRoute.snapshot.paramMap.get('id')
+    this.argumentos = this.activeRoute.snapshot.paramMap.get('iditem')
+    console.log(this.argumentos)
   }
 
   getAllTask() {
@@ -25,8 +26,7 @@ lista: Task[]
     })
   }
 
-  getTask() {
-    const id = "1"
+  getTask(id) {
     this.taskService.getTask(id).subscribe(task => {
       console.log(task)
     })

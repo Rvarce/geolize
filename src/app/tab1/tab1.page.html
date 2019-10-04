@@ -6,64 +6,80 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-card class="welcome-card"  color="ligth">
+<ion-content color="medium">
+  <!-- <ion-card class="welcome-card"  color="ligth">
       <img src="assets/img/turismo.png" />
       <ion-card-header>
         <ion-card-subtitle>Bienvenido</ion-card-subtitle>
         <ion-card-title>Nombre usuario</ion-card-title>
       </ion-card-header>
-    </ion-card>
-    <ion-list>
-      <ion-list-header>
-        <ion-icon name="search" color="medium"></ion-icon>
-        <ion-input type="search" placeholder="Buscar viajes" color="medium"></ion-input>
-      </ion-list-header>
-      <ion-item>
-        <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
-        <ion-label>
-          <h2>Cajon del maipo</h2>
-          <ion-label color="medium"><h3>Embalse del Yeso</h3></ion-label>
-          
-        
-        </ion-label>
-        <ion-thumbnail>
-          <img src="assets/img/cajon-del-maipo.jpg">
+    </ion-card> -->
+  <ion-card class="welcome-card" color="light">
+    <ion-card-header>
+      <ion-item color="light" lines="none">
+        <ion-thumbnail class="perfil" slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
         </ion-thumbnail>
-        <!-- <ion-button (click)="routingAngular()">Iniciar</ion-button> -->
+        <ion-label>{{ afAuth.auth.currentUser.displayName }}</ion-label>
       </ion-item>
-      <ion-item>
-        <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
-        <ion-label>
-          <h2>San Pedro de Atacama</h2>
-        <ion-label color="medium"><h3>Salar de Tara</h3></ion-label>
-        </ion-label>
-        <ion-thumbnail>
-          <img src="assets/img/salardetara.jpg">
-        </ion-thumbnail>
-        <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
-      </ion-item>
-
-    </ion-list>
-
-    <!-- lita con conexion a rest -->
-      <ion-list lines="nones" >
-        <!-- "let item of viaje" -->
-        
-          <ion-item (click)="routingAngular(item.id)" *ngFor="let item of task"> 
-            <!-- {{ item.nombreViaje }} -->
-            <ion-label>
-                <h2>{{ item.title }}</h2>
-              <ion-label color="medium"><h3>Salar de Tara</h3></ion-label>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-list-header>
+          <ion-icon name="search" color="medium"></ion-icon>
+          <ion-input type="search" placeholder="Buscar viajes" color="medium"></ion-input>
+        </ion-list-header>
+        <ion-item>
+          <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
+          <ion-label>
+            <h2>Cajon del maipo</h2>
+            <ion-label color="medium">
+              <h3>Embalse del Yeso</h3>
             </ion-label>
 
-            <ion-thumbnail slot="end">
-              <img src="assets/img/salardetara.jpg">
-            </ion-thumbnail>
-            
-          </ion-item>
-        
+
+          </ion-label>
+          <ion-thumbnail>
+            <img src="assets/img/cajon-del-maipo.jpg">
+          </ion-thumbnail>
+          <!-- <ion-button (click)="routingAngular()">Iniciar</ion-button> -->
+        </ion-item>
+        <ion-item>
+          <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
+          <ion-label>
+            <h2>San Pedro de Atacama</h2>
+            <ion-label color="medium">
+              <h3>Salar de Tara</h3>
+            </ion-label>
+          </ion-label>
+          <ion-thumbnail>
+            <img src="assets/img/salardetara.jpg">
+          </ion-thumbnail>
+          <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
+        </ion-item>
+
       </ion-list>
-      
-    
+
+      <!-- lita con conexion a rest -->
+      <ion-list lines="nones">
+        <!-- "let item of viaje" -->
+
+        <ion-item (click)="routingAngular(item.id)" *ngFor="let item of task">
+          <!-- {{ item.nombreViaje }} -->
+          <ion-label>
+            <h2>{{ item.title }}</h2>
+            <ion-label color="medium">
+              <h3>Salar de Tara</h3>
+            </ion-label>
+          </ion-label>
+
+          <ion-thumbnail slot="end">
+            <img src="assets/img/salardetara.jpg">
+          </ion-thumbnail>
+
+        </ion-item>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

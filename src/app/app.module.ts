@@ -11,12 +11,19 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule } from "@angular/common/http";
 
-//import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { firebaseConfig } from "../environments/environment";
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+  AngularFireModule.initializeApp(firebaseConfig),
+  AngularFireAuthModule,
+  AngularFirestoreModule],
   providers: [
     StatusBar,
     SplashScreen,

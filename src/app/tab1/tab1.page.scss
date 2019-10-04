@@ -2,7 +2,16 @@
   max-height: 35vh;
   overflow: hidden;
 }
-.item ion-thumbnail {
+.perfil {
+  min-width: 5rem;    
+  min-height: 5rem;
+  img {
+      max-width: 5rem;    
+      min-width: 5rem;
+      border-radius: 50rem;
+  }
+}
+.itemlist {
   min-width: 5rem;    
   min-height: 5rem;
   img {

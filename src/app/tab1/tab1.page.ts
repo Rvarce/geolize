@@ -5,6 +5,7 @@ import { Viaje } from '../interface/viaje';
 import { OnInit } from '@angular/core';
 import { Task } from '../interface/task';
 import { TaskService } from '../service/task.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-tab1',
@@ -16,9 +17,16 @@ export class Tab1Page implements OnInit{
   viajes: Viaje
   task: Task[] = []
   idViaje: string
-  constructor(private router: Router, private viajeService: ViajeService, private taskService: TaskService) {}
+  user: any
+  constructor(private router: Router, private viajeService: ViajeService, private taskService: TaskService, private afAuth: AngularFireAuth) {}
   
   ngOnInit(){
+    this.user = this.afAuth.auth.currentUser
+    if ( this.user == null) {
+      //this.router.navigate(['/login'])
+    
+    }
+    console.log(this.user.displayName)
     this.idUsuario = "2"
     this.getViajesUsuario(this.idUsuario)
     

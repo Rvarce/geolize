@@ -12,41 +12,43 @@ import { AngularFireAuth } from '@angular/fire/auth';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit{
+export class Tab1Page implements OnInit {
   idUsuario: string
-  viajes: Viaje
+  viajes: Viaje[] = []
   task: Task[] = []
   idViaje: string
   user: any
-  constructor(private router: Router, private viajeService: ViajeService, private taskService: TaskService, private afAuth: AngularFireAuth) {}
-  
-  ngOnInit(){
+  constructor(private router: Router, private viajeService: ViajeService, private taskService: TaskService, private afAuth: AngularFireAuth) { }
+
+  ngOnInit() {
     this.user = this.afAuth.auth.currentUser
-    if ( this.user == null) {
-      //this.router.navigate(['/login'])
-    
+    if (this.user == null) {
+      this.router.navigate(['/login'])
+
     }
-    console.log(this.user.displayName)
-    this.idUsuario = "2"
-    this.getViajesUsuario(this.idUsuario)
-    
+  
+    this.getViajesUsuario()
+
   }
 
-  getViajesUsuario(idUsuario){
-  //   this.viajeService.getViajeForUser(this.idUsuario).subscribe((data) => {
-    this.taskService.getTaskForUser(idUsuario).subscribe((data) => {
-      for(let item of data){
-        if(item.completed == false){
-          this.task.push(item)
-        }
-      }
-      console.log(this.task)
+  getViajesUsuario() {
+    this.viajeService.consultarViajes().subscribe((data) => {
+      // this.taskService.getTaskForUser(idUsuario).subscribe((data) => {
+      //   for(let item of data){
+      //     if(item.completed == false){
+      //       this.task.push(item)
+      //     }
+      //   }
+      //   console.log(this.task)
+
+      this.viajes = data
+      console.log(this.viajes)
     }
     )
   }
 
   //con evento click, con routerLink no es necesario
-  routingAngular(idItem){
+  routingAngular(idItem) {
     //alert("¿Desea iniciar este viaje?")
     console.log(idItem)
     this.router.navigate(['/viaje', idItem])

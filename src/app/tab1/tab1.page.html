@@ -1,12 +1,12 @@
 <ion-header>
-  <ion-toolbar color="dark">
+  <ion-toolbar color="pink">
     <ion-title>
       Geolize
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="medium">
+<ion-content>
   <!-- <ion-card class="welcome-card"  color="ligth">
       <img src="assets/img/turismo.png" />
       <ion-card-header>
@@ -14,16 +14,22 @@
         <ion-card-title>Nombre usuario</ion-card-title>
       </ion-card-header>
     </ion-card> -->
-  <ion-card class="welcome-card" color="light">
-    <ion-card-header>
-      <ion-item color="light" lines="none">
-        <ion-thumbnail class="perfil" slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+  
+    <div class="header">
+      <div style="display: flex">
+        <ion-thumbnail class="perfil" slot="start" style="margin: auto; margin-top: 30px"> 
+          <img src="../../assets/img/socialicon.jpg">
+          
         </ion-thumbnail>
-        <ion-label>{{ afAuth.auth.currentUser.displayName }}</ion-label>
-      </ion-item>
-    </ion-card-header>
-    <ion-card-content>
+        <br>
+        <ion-label color="light" style="margin: auto; margin-right: 75px;  margin-top: 58px">
+          <h1 style="text-shadow: 2px 2px 2px gray;">{{ afAuth.auth.currentUser.displayName }}</h1>
+        </ion-label>
+      
+      </div>
+     
+    </div>
+    
       <ion-list>
         <ion-list-header>
           <ion-icon name="search" color="medium"></ion-icon>
@@ -64,12 +70,12 @@
       <ion-list lines="nones">
         <!-- "let item of viaje" -->
 
-        <ion-item (click)="routingAngular(item.id)" *ngFor="let item of task">
+        <ion-item (click)="routingAngular(item.id)" *ngFor="let item of viajes">
           <!-- {{ item.nombreViaje }} -->
           <ion-label>
-            <h2>{{ item.title }}</h2>
+            <h2>{{ item.nombreViaje }}</h2>
             <ion-label color="medium">
-              <h3>Salar de Tara</h3>
+              <h3>{{ item.duracion }}</h3>
             </ion-label>
           </ion-label>
 
@@ -80,6 +86,6 @@
         </ion-item>
 
       </ion-list>
-    </ion-card-content>
-  </ion-card>
+    
+
 </ion-content>

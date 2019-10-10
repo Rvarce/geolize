@@ -27,9 +27,13 @@ export class ViajeService {
     )
   }
 
-  
-
   consultarViajes(){
+    return this.viaje
+  }
+  consultarViaje(id){
+    return this.viajeCollection.doc<Viaje>(id).valueChanges()
+  }
+  updateViaje(){
     
   }
 

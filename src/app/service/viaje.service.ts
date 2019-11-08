@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Viaje } from '../interface/viaje';
 import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
- //validar url api y path
+ 
 export class ViajeService {
   private viajeCollection: AngularFirestoreCollection<Viaje>
   private viaje: Observable<Viaje[]>
-
+  
   constructor(private db: AngularFirestore){ 
     this.viajeCollection = this.db.collection<Viaje>('viaje')
-
+    
     this.viaje = this.viajeCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
@@ -32,6 +32,9 @@ export class ViajeService {
   }
   consultarViaje(id){
     return this.viajeCollection.doc<Viaje>(id).valueChanges()
+    // let db = firestore()
+    // const viaje = db.collection('viaje').where('lugares', '==', '29Mi7rfULq2RP5sLQnwo')
+    // return viaje
   }
   updateViaje(){
     

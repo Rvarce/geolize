@@ -6,4 +6,5 @@ export interface Viaje {
     descripcionViaje: string;
     fechaCreacion: Date;
     estado: string;
+    lugares: [];
 }

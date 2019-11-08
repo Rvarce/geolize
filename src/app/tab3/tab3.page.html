@@ -7,12 +7,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-thumbnail slot="start">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-    </ion-thumbnail>
-    <ion-label>{{ afAuth.auth.currentUser.displayName }}</ion-label>
-  </ion-item>
+
+ 
+    <div class="header">
+      <div style="display: flex">
+        <ion-thumbnail class="perfil" slot="start" style="margin: auto; margin-top: 30px"> 
+          <img src="../../assets/img/socialicon.jpg">
+          
+        </ion-thumbnail>
+        <br>
+        <ion-label color="light" style="margin: auto; margin-right: 75px;  margin-top: 58px">
+          <h1 style="text-shadow: 2px 2px 2px gray;">{{ afAuth.auth.currentUser.displayName }}</h1>
+        </ion-label>
+      
+      </div>
+     
+    </div>
+  
   <ion-list lines="none">
     <ion-list-header>
       <ion-label></ion-label>

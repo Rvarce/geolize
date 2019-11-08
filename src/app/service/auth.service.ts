@@ -16,7 +16,7 @@ export class AuthService {
           
           if (this.afAuth.auth.currentUser) {
             
-            this.router.navigate(['/'])           
+            this.router.navigate(['/tabs'])           
           }
         })
         .catch(err => {

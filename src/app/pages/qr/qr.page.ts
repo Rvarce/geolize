@@ -11,7 +11,7 @@ export class QrPage implements OnInit {
   constructor(private qrScanner: QRScanner) { }
 
   ngOnInit() {
-    //Varificar funcionamiento
+    //Verificar funcionamiento
     this.qrScanner.show();
     window.document.querySelector('ion-app').classList.add('transparent-body');
   // Optionally request the permission early

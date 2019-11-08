@@ -1,5 +1,7 @@
 {
   "name": "geolize",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

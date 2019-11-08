@@ -7,85 +7,105 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-card class="welcome-card"  color="ligth">
-      <img src="assets/img/turismo.png" />
-      <ion-card-header>
-        <ion-card-subtitle>Bienvenido</ion-card-subtitle>
-        <ion-card-title>Nombre usuario</ion-card-title>
-      </ion-card-header>
-    </ion-card> -->
-  
-    <div class="header">
-      <div style="display: flex">
-        <ion-thumbnail class="perfil" slot="start" style="margin: auto; margin-top: 30px"> 
-          <img src="../../assets/img/socialicon.jpg">
-          
-        </ion-thumbnail>
-        <br>
-        <ion-label color="light" style="margin: auto; margin-right: 75px;  margin-top: 58px">
-          <h1 style="text-shadow: 2px 2px 2px gray;">{{ afAuth.auth.currentUser.displayName }}</h1>
-        </ion-label>
-      
-      </div>
-     
-    </div>
-    
-      <ion-list>
-        <ion-list-header>
+
+  <ion-item color="light">
+    <h3>Tus viajes</h3>
+  </ion-item>
+  <ion-item (click)="routingAngular(item.id)" *ngFor="let item of viajes">
+    <ion-card class="welcome-card">
+
+
+      <img src="assets/img/salardetara.jpg">
+
+      <ion-card-content>
+        <ion-card-title>
+          {{ item.nombreViaje }}
+        </ion-card-title>
+        <ion-card-subtitle>
+          {{ item.duracion }}
+        </ion-card-subtitle>
+
+      </ion-card-content>
+
+
+    </ion-card>
+  </ion-item>
+
+  <ion-item color="light">
+    <h3>Recomendados</h3>
+  </ion-item>
+  <ion-list>
+    <!-- <ion-list-header>
           <ion-icon name="search" color="medium"></ion-icon>
           <ion-input type="search" placeholder="Buscar viajes" color="medium"></ion-input>
-        </ion-list-header>
-        <ion-item>
-          <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
-          <ion-label>
-            <h2>Cajon del maipo</h2>
-            <ion-label color="medium">
-              <h3>Embalse del Yeso</h3>
-            </ion-label>
+        </ion-list-header> -->
+    <ion-item>
+      <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
+      <ion-label>
+        <h2>Cajon del maipo</h2>
+        <ion-label color="medium">
+          <h3>Embalse del Yeso</h3>
+        </ion-label>
 
 
-          </ion-label>
-          <ion-thumbnail>
-            <img src="assets/img/cajon-del-maipo.jpg">
-          </ion-thumbnail>
-          <!-- <ion-button (click)="routingAngular()">Iniciar</ion-button> -->
-        </ion-item>
-        <ion-item>
-          <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
-          <ion-label>
-            <h2>San Pedro de Atacama</h2>
-            <ion-label color="medium">
-              <h3>Salar de Tara</h3>
-            </ion-label>
-          </ion-label>
-          <ion-thumbnail>
-            <img src="assets/img/salardetara.jpg">
-          </ion-thumbnail>
-          <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
-        </ion-item>
-
-      </ion-list>
-
-      <!-- lita con conexion a rest -->
-      <ion-list lines="nones">
-        <!-- "let item of viaje" -->
-
-        <ion-item (click)="routingAngular(item.id)" *ngFor="let item of viajes">
-          <!-- {{ item.nombreViaje }} -->
-          <ion-label>
-            <h2>{{ item.nombreViaje }}</h2>
-            <ion-label color="medium">
-              <h3>{{ item.duracion }}</h3>
-            </ion-label>
-          </ion-label>
-
-          <ion-thumbnail slot="end">
-            <img src="assets/img/salardetara.jpg">
-          </ion-thumbnail>
-
-        </ion-item>
-
-      </ion-list>
-    
+      </ion-label>
+      <ion-thumbnail>
+        <img src="assets/img/cajon-del-maipo.jpg">
+      </ion-thumbnail>
+      <!-- <ion-button (click)="routingAngular()">Iniciar</ion-button> -->
+    </ion-item>
+    <ion-item>
+      <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
+      <ion-label>
+        <h2>San Pedro de Atacama</h2>
+        <ion-label color="medium">
+          <h3>Salar de Tara</h3>
+        </ion-label>
+      </ion-label>
+      <ion-thumbnail>
+        <img src="assets/img/salardetara.jpg">
+      </ion-thumbnail>
+      <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
+    </ion-item>
+    <ion-item>
+      <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
+      <ion-label>
+        <h2>San Pedro de Atacama</h2>
+        <ion-label color="medium">
+          <h3>Salar de Tara</h3>
+        </ion-label>
+      </ion-label>
+      <ion-thumbnail>
+        <img src="assets/img/salardetara.jpg">
+      </ion-thumbnail>
+      <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
+    </ion-item>
+    <ion-item>
+      <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
+      <ion-label>
+        <h2>San Pedro de Atacama</h2>
+        <ion-label color="medium">
+          <h3>Salar de Tara</h3>
+        </ion-label>
+      </ion-label>
+      <ion-thumbnail>
+        <img src="assets/img/salardetara.jpg">
+      </ion-thumbnail>
+      <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
+    </ion-item>
+    <ion-item>
+      <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
+      <ion-label>
+        <h2>San Pedro de Atacama</h2>
+        <ion-label color="medium">
+          <h3>Salar de Tara</h3>
+        </ion-label>
+      </ion-label>
+      <ion-thumbnail>
+        <img src="assets/img/salardetara.jpg">
+      </ion-thumbnail>
+      <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
+    </ion-item>
+  </ion-list>
 
 </ion-content>

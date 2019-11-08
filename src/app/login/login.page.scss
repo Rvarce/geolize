@@ -1,6 +1,15 @@
 ion-content.background{
     
-    --background: url('../../assets/img/fondologin.png');
+    --background: url('../../assets/img/fondologin.png') no-repeat;
+    background-size: cover;
+    min-height:200px;
+    display:block;
+    height:100%;
+    min-height:100px;
+    width:100%;
+    min-width:100px;
+
+
 }
 .cardlogin {
     margin-bottom: 50px; 

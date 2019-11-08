@@ -25,3 +25,14 @@
       border-radius: 1rem;
   }
 }
+
+.item ion-thumbnail {
+  min-width: 8rem;    
+  min-height: 8rem;
+  
+  img {
+      max-width: 8rem;    
+      min-width: 8rem;
+      border-radius: 5px;
+  }
+}

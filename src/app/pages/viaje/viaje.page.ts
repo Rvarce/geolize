@@ -5,6 +5,7 @@ import { ViajeService } from 'src/app/service/viaje.service';
 import { Viaje } from 'src/app/interface/viaje';
 import { LugarService } from 'src/app/service/lugar.service';
 import { Lugar } from 'src/app/interface/lugar';
+import { resolve } from 'url';
 
 declare var google;
 
@@ -21,10 +22,6 @@ export class ViajePage implements OnInit {
   idItem: string
   viaje: Viaje
   map: any
-  idLugares: []
-  lugar: Lugar
-  lugares: Lugar[] = []
- 
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -35,102 +32,69 @@ export class ViajePage implements OnInit {
 
   ngOnInit() {
     this.idItem = this.activeRoute.snapshot.paramMap.get('iditem')
-    
-    
-    let con = this.consultaViaje()
-    
-    if (con) {
-      
-      this.loadMap()
-    }
-    //this.map = new Map('map');
-    //this.routingMap()
+
+
+    this.consultaViaje(this.idItem)//Consulta viaje asociado a usuario
+        .then(idLugares => this.loadMap(idLugares))//Carga mapa con los lugares asociados al viaje
+        .catch(error => console.log(error))
+
     console.log('get', this.idItem)
-    
-    
+
   }
-  
+
 
   //Cada viaje tiene varios lugares asociados,
   //Se consulta el viaje del cliente y luegos los lugares asociados al viaje
-  consultaViaje(){
-    this.viajeService.consultarViaje(this.idItem).subscribe( (data) =>{
-      this.idLugares = data.lugares
-      console.log(this.idLugares)
-      this.consultaLugar(this.idLugares)
-       
-    })
-    
-    return true
-    
-  }
+  consultaViaje = (idItem) => {
+    let idLugares: []
+    let promise = new Promise((resolve, rej) => {
 
-  consultaLugar(idLugar){
-    
-    idLugar.forEach(element => {
-      this.lugarService.consultarLugar(element).subscribe( (data) => {
-       // this.lugar = data
-        this.lugares.push(data)
-                  
+      this.viajeService.consultarViaje(idItem).subscribe((data) => {
+        idLugares = data.lugares
+        console.log('Desde consultaViaje ', idLugares)
+        resolve(idLugares)
+
       })
-    });
-    //console.log(this.lugares)
-    console.log(this.lugares)
-    
-    
+    })
+    return promise
   }
 
-  loadMap() {
-    // this.lat = -33.4469332
-    // this.lng = -70.6330825
-    
-    this.lat = -47.798400
-    this.lng = -73.539887
 
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.currentPos = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
-      let latLng = new google.maps.LatLng(this.lat, this.lng);
+  loadMap = (idLugares) => {
+
+    console.log('idLugares', idLugares)
+    console.log('idLugares 0', idLugares[0])
+    // this.geolocation.getCurrentPosition().then((resp) => {
+    //   this.currentPos = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+
+
+    // })
+
+    this.lugarService.consultarLugar(idLugares[0]).subscribe( (data) => {
+      let latLng = new google.maps.LatLng(data.lat, data.lng);
       let mapOptions = {
         center: latLng,
-        zoom: 8,
+        zoom: 7,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
-
-
-
       this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-      
-      
+    } )
+   
+    //Busca cada lugar correspondiente al viaje e inserta un marker en el mapa
+    idLugares.forEach(element => {
 
-      this.lugares.forEach(lugaresData => {
-        // console.log(lugaresData.nombre)
-        // console.log(lugaresData.lat)
-        // console.log(lugaresData.lng)
-        let lngLngAux = new google.maps.LatLng(lugaresData.lat, lugaresData.lng)
+      this.lugarService.consultarLugar(element).subscribe((data) => {
 
+        let latLngAux = new google.maps.LatLng(data.lat, data.lng)
         var infowindow = new google.maps.InfoWindow;
-        infowindow.setContent(lugaresData.nombre);
-
-        var marker = new google.maps.Marker({map: this.map, position: lngLngAux});
-        marker.addListener('click', function() {
+        infowindow.setContent(data.nombre);
+        var marker = new google.maps.Marker({ map: this.map, position: latLngAux });
+        marker.addListener('click', function () {
           infowindow.open(this.map, marker);
         });
-      });
-        // var marker = new google.maps.Marker({map: this.map, position: latLng});
-        // marker.addListener('click', function() {
-        //   infowindow.open(this.map, marker);
-        // });
-        
-
-    })
+      })
+    });
     
-    }
- 
-  
-
-  /** Remove map when we have multiple map object */
-  ionViewWillLeave() {
-
   }
 
 

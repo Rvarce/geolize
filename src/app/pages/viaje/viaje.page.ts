@@ -4,8 +4,6 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ViajeService } from 'src/app/service/viaje.service';
 import { Viaje } from 'src/app/interface/viaje';
 import { LugarService } from 'src/app/service/lugar.service';
-import { Lugar } from 'src/app/interface/lugar';
-import { resolve } from 'url';
 
 declare var google;
 
@@ -35,8 +33,8 @@ export class ViajePage implements OnInit {
 
 
     this.consultaViaje(this.idItem)//Consulta viaje asociado a usuario
-        .then(idLugares => this.loadMap(idLugares))//Carga mapa con los lugares asociados al viaje
-        .catch(error => console.log(error))
+      .then(idLugares => this.loadMap(idLugares))//Carga mapa con los lugares asociados al viaje
+      .catch(error => console.log(error))
 
     console.log('get', this.idItem)
 
@@ -64,13 +62,8 @@ export class ViajePage implements OnInit {
 
     console.log('idLugares', idLugares)
     console.log('idLugares 0', idLugares[0])
-    // this.geolocation.getCurrentPosition().then((resp) => {
-    //   this.currentPos = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
 
-
-    // })
-
-    this.lugarService.consultarLugar(idLugares[0]).subscribe( (data) => {
+    this.lugarService.consultarLugar(idLugares[0]).subscribe((data) => {
       let latLng = new google.maps.LatLng(data.lat, data.lng);
       let mapOptions = {
         center: latLng,
@@ -78,8 +71,8 @@ export class ViajePage implements OnInit {
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
       this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    } )
-   
+    })
+
     //Busca cada lugar correspondiente al viaje e inserta un marker en el mapa
     idLugares.forEach(element => {
 
@@ -94,7 +87,27 @@ export class ViajePage implements OnInit {
         });
       })
     });
-    
+
+  }
+
+  myPosition() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.currentPos = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+      let mapOptions = {
+        center: this.currentPos,
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      this.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+      var marker = new google.maps.Marker({ 
+        map: this.map, 
+        position: this.currentPos,
+        draggable: true,
+        animation: google.maps.Animation.BOUNCE
+      });
+      
+    })
   }
 
 

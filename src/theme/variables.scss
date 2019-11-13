@@ -89,4 +89,24 @@
   --ion-color-contrast-rgb: var(--ion-color-pink-contrast-rgb);
   --ion-color-shade: var(--ion-color-pink-shade);
   --ion-color-tint: var(--ion-color-pink-tint);
+
+  //Blank
+  :root {
+    --ion-color-blank: #FFFFFF;
+    --ion-color-blank-rgb: 255,255,255;
+    --ion-color-blank-contrast: #000000;
+    --ion-color-blank-contrast-rgb: 0,0,0;
+    --ion-color-blank-shade: #e0e0e0;
+    --ion-color-blank-tint: #ffffff;
+  }
+  
+  .ion-color-blank {
+    --ion-color-base: var(--ion-color-blank);
+    --ion-color-base-rgb: var(--ion-color-blank-rgb);
+    --ion-color-contrast: var(--ion-color-blank-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-blank-contrast-rgb);
+    --ion-color-shade: var(--ion-color-blank-shade);
+    --ion-color-tint: var(--ion-color-blank-tint);
+  }
+  
 }

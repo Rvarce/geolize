@@ -1,56 +1,35 @@
 <ion-header>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 
-
+  <!-- 
   <ion-toolbar color="pink">
     <ion-title>Iniciar sesion</ion-title>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-header>
 
 <ion-content class="background">
-    
-  <!-- <ion-card>
-    <ion-card-header style="margin-bottom: 50px; margin-top: 50‒; margin-top: 50px;">
-      <ion-img src="assets/img/Logo.jpg"></ion-img>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list lines="none">
-        <ion-item>
-          <ion-label position="floating" style="margin-left: 20px;"> Email</ion-label>
-          <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating" style="margin-left: 20px;"> Contraseña</ion-label>
-          <ion-input type="password" [(ngModel)]="pass" name="pass"></ion-input>
-        </ion-item>
-        <ion-button color="medium" expand="full" (click)="authUsuario()">Ingresar</ion-button>
-      </ion-list>
-    </ion-card-content>
-  </ion-card> -->
-  <ion-img src="assets/img/logoGeolize.png" style="margin: auto; max-width: 150px; max-height: 150px; margin-top: 20%; margin-bottom: 20%"></ion-img>
+
+  <ion-img src="assets/img/logoGeolize.png"
+    style="margin: auto; max-width: 150px; max-height: 150px; margin-top: 20%; margin-bottom: 20%"></ion-img>
   <ion-card>
-   
-    
-
-   
-      <ion-list lines="none" class="transp">
-        <ion-item color="medium"  style="margin-bottom: 10%">
-          <ion-label position="floating" style="margin-left: 20px;"> Email</ion-label>
-          <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
-        </ion-item>
-        <ion-item color="medium" style="margin-bottom: 10%">
-          <ion-label position="floating" style="margin-left: 20px;"> Contraseña</ion-label>
-          <ion-input type="password" [(ngModel)]="pass" name="pass"></ion-input>
-        </ion-item>
-        <ion-button color="pink" expand="full" (click)="authUsuario()">Ingresar</ion-button>
-      </ion-list>
-   
 
 
-<!-- <ion-footer>
-  <ion-toolbar color="black" style="text-align: center">
-    <ion-title>
-      <h5>Querity®</h5>
-    </ion-title>
-  </ion-toolbar>
-</ion-footer> -->
+
+
+    <ion-list lines="none" class="transp">
+      <ion-item  class="loginitm">
+        <ion-label class="loginlbl" position= "floating"> Email</ion-label>
+        <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+      </ion-item>
+      <ion-item  class="loginitm">
+        <ion-label class="loginlbl" position= "floating"> Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="pass" name="pass"></ion-input>
+      </ion-item>
+      <ion-button color="dark" expand="full" (click)="authUsuario()" style="min-height: 50px;">Ingresar</ion-button>
+    </ion-list>
+
+    <!-- <ion-footer>
+      <ion-toolbar>
+        <ion-title>Querity®</ion-title>
+      </ion-toolbar>
+    </ion-footer> -->

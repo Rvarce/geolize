@@ -19,6 +19,8 @@ import { firebaseConfig } from "../environments/environment";
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
+import { BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +34,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
     SplashScreen,
     Geolocation,
     NativeGeocoder,
+    BarcodeScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -1,13 +1,13 @@
 ion-content.background{
     
-    --background: url('../../assets/img/fondologin.png') no-repeat;
-    background-size: cover;
-    min-height:200px;
-    display:block;
-    height:100%;
-    min-height:100px;
-    width:100%;
-    min-width:100px;
+    --background: url('../../assets/img/fondologin4.png');
+    //background-size: cover;
+    //min-height:200px;
+    //display:block;
+//     height:100%;
+//     min-height:100px;
+//    width:100%;
+//    min-width:100px;
 
 
 }
@@ -19,4 +19,14 @@ ion-content.background{
 }
 .transp{
     background-color: transparent;
+}
+
+.loginlbl {
+   
+    margin-left: 20px;
+}
+
+.loginitm {
+    background-color: transparent;
+    margin-bottom: 10%
 }

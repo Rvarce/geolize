@@ -1,26 +1,49 @@
 <ion-header>
-  <ion-toolbar color="pink">
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref=""></ion-back-button>
-      </ion-buttons>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
     <ion-title>Viaje</ion-title>
 
     <ion-button slot="end" color="black" routerLink="/qr">
       <ion-icon name="qr-scanner"></ion-icon>
     </ion-button>
 
-    <!-- <ion-button slot="end" color="black" (click)="loadMap()">
+    <ion-button slot="end" color="black" (click)="myPosition()">
       <ion-icon name="locate"></ion-icon>
-    </ion-button> -->
+    </ion-button>
 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="contenedor">
+    <img src="assets/img/CaletaTortel.jpg">
+    <div class="centrado">
 
- 
-    <div #map id="map"></div>
- 
-  
+
+      <ion-toolbar style="margin-top: 30px;">
+        <ion-title>Caleta Tortel</ion-title>
+        <ion-title size="small">7 Dias / 6 Noches</ion-title>
+      </ion-toolbar>
+    </div>
+  </div>
+
+  <ion-item color="light" class="ubicacion">
+    <span>Ubicacion codigos QR</span>
+  </ion-item>
+
+  <div #map id="map"></div>
+
+<div class="valoracion">
+  <ion-title>Valora este viaje</ion-title>
+</div>
+<div class="stars">
+  <ion-icon name="star-outline"></ion-icon>
+  <ion-icon name="star-outline"></ion-icon>
+  <ion-icon name="star-outline"></ion-icon>
+  <ion-icon name="star-outline"></ion-icon>
+  <ion-icon name="star-outline"></ion-icon>
+</div>
 
 </ion-content>

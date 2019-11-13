@@ -25,7 +25,8 @@ html, body, #map {
    
   #map {
 	width: 100%;
-	height: 100%;
+	height: 50%;
+	//margin-top: 70px;
   }
    
   .map-wrapper {
@@ -33,3 +34,38 @@ html, body, #map {
    
 
   }
+
+  .contenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+ 
+.centrado{
+    position: absolute;
+    top: 95%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	width: 65%;
+	height:  50%;
+	background-color: #ffffff;
+	-moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px#888;
+  box-shadow: 0 0 5px #888;
+}
+
+.ubicacion {
+	margin-top: 70px;
+}
+
+.valoracion {
+	margin-top: 10%;
+	margin-left: 22%;
+	//align-items: center;
+}
+
+.stars {
+	margin-top: 10%;
+	margin-left: 38%;
+	margin-bottom: 50%;
+}

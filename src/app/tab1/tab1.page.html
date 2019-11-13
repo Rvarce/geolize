@@ -1,21 +1,17 @@
 <ion-header>
-  <ion-toolbar color="pink">
-    <ion-title>
-      Geolize
-    </ion-title>
+  <ion-toolbar color="dark">
+    <span style="margin-left: 5%;">Geolize</span>
+      
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-item color="light">
-    <h3>Tus viajes</h3>
-  </ion-item>
-  <ion-item (click)="routingAngular(item.id)" *ngFor="let item of viajes">
+  <ion-item  *ngFor="let item of viajes">
     <ion-card class="welcome-card">
 
 
-      <img src="assets/img/salardetara.jpg">
+      <img src="assets/img/CaletaTortel.jpg">
 
       <ion-card-content>
         <ion-card-title>
@@ -24,6 +20,14 @@
         <ion-card-subtitle>
           {{ item.duracion }}
         </ion-card-subtitle>
+        <ion-label>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+          </ion-label>
+        <ion-button class="button" (click)="routingAngular(item.id)" color="blank" expand="full">Comenzar</ion-button>
 
       </ion-card-content>
 
@@ -32,80 +36,63 @@
   </ion-item>
 
   <ion-item color="light">
-    <h3>Recomendados</h3>
+    <span>Recomendados</span>
   </ion-item>
   <ion-list>
     <!-- <ion-list-header>
           <ion-icon name="search" color="medium"></ion-icon>
           <ion-input type="search" placeholder="Buscar viajes" color="medium"></ion-input>
         </ion-list-header> -->
-    <ion-item>
+    <ion-item class="shadow">
       <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
       <ion-label>
-        <h2>Cajon del maipo</h2>
+        <h2>Parque Queulat</h2>
         <ion-label color="medium">
-          <h3>Embalse del Yeso</h3>
+          <h3>3 DÍAS / 2 NOCHES</h3>
         </ion-label>
-
+        <ion-label>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+        </ion-label>
+        <ion-label>
+          <ion-button color="dark">Ver mas</ion-button>
+        </ion-label>
 
       </ion-label>
       <ion-thumbnail>
-        <img src="assets/img/cajon-del-maipo.jpg">
+        <img src="assets/img/parquequeulat.jpg">
       </ion-thumbnail>
       <!-- <ion-button (click)="routingAngular()">Iniciar</ion-button> -->
     </ion-item>
-    <ion-item>
+    
+    <ion-item class="shadow">
       <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
       <ion-label>
-        <h2>San Pedro de Atacama</h2>
+        <h2>Capillas de Marmol</h2>
         <ion-label color="medium">
-          <h3>Salar de Tara</h3>
+          <h3>3 DÍAS / 2 NOCHES</h3>
         </ion-label>
+        <ion-label>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-half"></ion-icon>
+          </ion-label>
+          <ion-label>
+            <ion-button color="dark">Ver mas</ion-button>
+          </ion-label>
       </ion-label>
       <ion-thumbnail>
-        <img src="assets/img/salardetara.jpg">
+        <img src="assets/img/capillasdemarmol.jpg">
       </ion-thumbnail>
       <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
     </ion-item>
-    <ion-item>
-      <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
-      <ion-label>
-        <h2>San Pedro de Atacama</h2>
-        <ion-label color="medium">
-          <h3>Salar de Tara</h3>
-        </ion-label>
-      </ion-label>
-      <ion-thumbnail>
-        <img src="assets/img/salardetara.jpg">
-      </ion-thumbnail>
-      <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
-    </ion-item>
-    <ion-item>
-      <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
-      <ion-label>
-        <h2>San Pedro de Atacama</h2>
-        <ion-label color="medium">
-          <h3>Salar de Tara</h3>
-        </ion-label>
-      </ion-label>
-      <ion-thumbnail>
-        <img src="assets/img/salardetara.jpg">
-      </ion-thumbnail>
-      <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
-    </ion-item>
-    <ion-item>
-      <!-- <ion-icon slot="start" color="medium" name="globe"></ion-icon> -->
-      <ion-label>
-        <h2>San Pedro de Atacama</h2>
-        <ion-label color="medium">
-          <h3>Salar de Tara</h3>
-        </ion-label>
-      </ion-label>
-      <ion-thumbnail>
-        <img src="assets/img/salardetara.jpg">
-      </ion-thumbnail>
-      <!-- <ion-button [routerLink]="['/pages']">Iniciar</ion-button> -->
-    </ion-item>
+   
+    
   </ion-list>
 
 </ion-content>

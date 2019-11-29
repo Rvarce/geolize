@@ -14,21 +14,31 @@ import { HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireStorageModule } from "@angular/fire/storage";
 import { firebaseConfig } from "../environments/environment";
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
+import { AutosizeDirective } from './directive/autosize.directive';
 
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AutosizeDirective],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
-  AngularFireModule.initializeApp(firebaseConfig),
-  AngularFireAuthModule,
-  AngularFirestoreModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    ReactiveFormsModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -39,4 +49,4 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

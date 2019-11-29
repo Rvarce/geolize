@@ -17,7 +17,7 @@
         </ion-thumbnail>
         <br>
         <ion-label color="light" style="margin: auto; margin-right: 75px;  margin-top: 58px">
-          <h1 style="text-shadow: 2px 2px 2px gray;">{{ afAuth.auth.currentUser.displayName }}</h1>
+          <h1 style="text-shadow: 2px 2px 2px gray;">{{ name }}</h1>
         </ion-label>
       
       </div>
@@ -34,7 +34,7 @@
     </ion-item>
     <ion-item>
         <ion-icon slot="start" color="medium"></ion-icon>
-        <ion-label>{{ afAuth.auth.currentUser.displayName }}</ion-label>
+        <ion-label>{{ name }}</ion-label>
       </ion-item>
     <ion-item>
       <ion-icon slot="start" color="medium" name="call"></ion-icon>
@@ -42,7 +42,7 @@
     </ion-item>
     <ion-item>
         <ion-icon slot="start" color="medium"></ion-icon>
-        <ion-label>+5690000000</ion-label>
+        <ion-label>{{ phoneNumber }}</ion-label>
       </ion-item>
     <ion-item>
       <ion-icon slot="start" color="medium"  name="mail"></ion-icon>
@@ -50,16 +50,9 @@
     </ion-item>
     <ion-item>
         <ion-icon slot="start" color="medium"></ion-icon>
-        <ion-label>nombre@correo.com</ion-label>
+        <ion-label>{{ email }}</ion-label>
       </ion-item>
-    <ion-item>
-      <ion-icon slot="start" color="medium" name="lock"></ion-icon>
-      <ion-label>contraseña</ion-label>
-    </ion-item>
-    <ion-item>
-        <ion-icon slot="start" color="medium"></ion-icon>
-        <ion-label>**********</ion-label>
-    </ion-item>
+    <ion-button color="blank" expand="full" class="btn">Cerrar sesion</ion-button>
     
   </ion-list>
 

@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+    <ion-slides pager="true" [options]="slideOpt">
+      <ion-slide>
+        <ion-grid class="stars">
+          <ion-row>
+            <ion-col>
+              <ion-title>Valora este viaje</ion-title>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <a *ngFor="let r of rating">
+                <ion-icon name="{{r.icon}}" (click)="setRating(r.value)" size="large"></ion-icon>
+              </a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid class="stars">
+          <ion-row>
+            <ion-col>
+              <ion-title>Sube tus fotos</ion-title>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="fileUpload btn btn-primary">
+                <ion-icon name="add-circle" size="large" color="primary"></ion-icon>
+                <input type="file" class="upload" accept="image/*" (change)="addImage($event)" multiple required />
+                <img [src]="profileUrl | async" />
+              </div>
+              <div>
+
+                <ion-img class="img" [src]="imageSrc"></ion-img>
+                <ion-input type="text" [(ngModel)]="mensajeArchivo" name="file"
+                  placeholder="No se a seleccionado ningun archivo"></ion-input>
+              </div>
+
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      <ion-slide>
+        <ion-grid class="stars">
+          <ion-row>
+            <ion-col>
+              <ion-title>Comenta tu viaje</ion-title>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-textarea [(ngModel)]="textarea" name="textarea"></ion-textarea>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-button class="btn" (click)="upload()">Enviar</ion-button>
+            
+
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+ 
+</ion-content>

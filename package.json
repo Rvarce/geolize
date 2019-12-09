@@ -24,6 +24,7 @@
     "@ionic-native/barcode-scanner": "^5.16.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/geolocation": "^5.16.0",
+    "@ionic-native/in-app-browser": "^5.18.0",
     "@ionic-native/native-geocoder": "^5.16.0",
     "@ionic-native/qr-scanner": "^5.15.0",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -33,6 +34,7 @@
     "cordova-ios": "^5.0.1",
     "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-geolocation": "^4.0.2",
+    "cordova-plugin-inappbrowser": "^3.1.0",
     "cordova-plugin-nativegeocoder": "^3.2.2",
     "core-js": "^2.5.4",
     "firebase": "^7.0.0",
@@ -91,7 +93,8 @@
       "cordova-plugin-nativegeocoder": {},
       "phonegap-plugin-barcodescanner": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      }
+      },
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "ios",

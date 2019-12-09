@@ -195,11 +195,13 @@ export class ViajePage implements OnInit {
     }
   }
   //Sube las imagenes, comentarios y valoracion a Firebase atraves de promesas
-  upload = () => {
+  upload = (form) => {
     this.uploadImage(this.file)
-      //.then(file => this.getReference(file))
       .then(imageUrl => this.sendComentario(imageUrl))
+      .finally(()=>form.reset())
       .catch(e => console.error("Error al enviar imagen: ", e))
+    
+    console.log("Form")
 
   }
   //Sube imagenes
@@ -240,14 +242,20 @@ export class ViajePage implements OnInit {
   //Envia comentarios
   sendComentario = (image) => {
     let comentario: Comentarios
-    let date: string = new Date().toISOString();
-    //let promise = new Promise((resolve, reject) => {
+    let date = new Date().toLocaleDateString();
+    // let options = { year: 'numeric', month: 'long', day: 'numeric' }
+    // console.log(
+    //   date.toLocaleDateString("es-ES", options)
+    // )
+    // let fecha = date.toLocaleDateString("es-ES", options)
     comentario = {
+      id: '',
       fecha: date,
       comentario: this.textarea,
       fotoURL: image,
       valoracion: this.newVal,
-      idUsuario: this.afAuth.auth.currentUser.uid
+      idUsuario: this.afAuth.auth.currentUser.uid,
+      nombreUsuario: this.afAuth.auth.currentUser.displayName
     }
 
     console.log('sendComentario', comentario)
@@ -264,11 +272,18 @@ export class ViajePage implements OnInit {
   }
   //Carga comentarios anteriores
   cargaComentarios() {
+    let comment : Comentarios [] = []
     this.ComentariosService.consultaComentarios().subscribe( data => {
-      this.comentarios = data
-      console.log('cargaComentarios', this.comentarios)
+      comment = data
+      //comment.sort((a, b)=> a.fecha  b.fecha);
+      console.log('comment', comment)
+      this.comentarios = comment
+      console.log('this.comentarios', this.comentarios)
     } )
 
+  }
+  verComentario(id){
+    this.router.navigate(['comentario', id])
   }
 
 }

@@ -1,10 +1,9 @@
-import { Url } from 'url';
-
 export interface Comentarios {
-   // uid: string,
+    id: string,
     fecha: string,
     comentario: string,
     fotoURL: any[],
     valoracion: string,
     idUsuario: string,
+    nombreUsuario: string
 }

@@ -25,6 +25,8 @@ import { AutosizeDirective } from './directive/autosize.directive';
 
 import {ReactiveFormsModule} from '@angular/forms';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 @NgModule({
   declarations: [AppComponent, AutosizeDirective],
   entryComponents: [],
@@ -40,6 +42,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
+    InAppBrowser,
     StatusBar,
     SplashScreen,
     Geolocation,

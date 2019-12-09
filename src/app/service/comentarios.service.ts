@@ -36,6 +36,7 @@ export class ComentariosService {
   referenciaCloudStorage(nombreArchivo: string) {
     let profileUrl: Observable<string | null>
     let ref = this.storage.ref(nombreArchivo)
+    console.log('profileUrl', profileUrl)
     return profileUrl = ref.getDownloadURL()
     
   }
@@ -53,7 +54,8 @@ export class ComentariosService {
       comentario: comentario.comentario,
       valoracion: comentario.valoracion,
       fotoURL: comentario.fotoURL,
-      idUsuario: comentario.idUsuario
+      idUsuario: comentario.idUsuario,
+      nombreUsuario: comentario.nombreUsuario
     })
       .then( docRef => {
         console.log("Documento subido con ID: ", docRef.id);

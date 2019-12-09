@@ -9,7 +9,7 @@
 <ion-content>
 
  
-    <div class="header">
+    <!-- <div class="header">
       <div style="display: flex">
         <ion-thumbnail class="perfil" slot="start" style="margin: auto; margin-top: 30px"> 
           <img src="../../assets/img/socialicon.jpg">
@@ -22,11 +22,34 @@
       
       </div>
      
-    </div>
-  
-  <ion-list lines="none">
-    <ion-list-header>
-      <ion-label></ion-label>
+    </div> -->
+    <!-- <ion-item>
+        
+          <ion-thumbnail slot="start" class="perfil"> 
+            <img src="../../assets/img/socialicon.jpg">
+            
+          </ion-thumbnail>
+          <br>
+          <ion-label color="light">
+            <h1 style="text-shadow: 2px 2px 2px gray;">{{ name }}</h1>
+          </ion-label>
+        
+        
+       
+      </ion-item> -->
+  <ion-list lines="none" style="padding-top: 0px;">
+    <ion-list-header color="dark" style="padding: 16px;">
+     <ion-item  color="dark">
+          <ion-thumbnail slot="start" class="perfil"> 
+              <img src="../../assets/img/socialicon.jpg">
+              
+            </ion-thumbnail>
+           
+            <ion-title color="light">
+             {{ name }}
+            
+      </ion-title>
+    </ion-item>
     </ion-list-header>
     <ion-item>
       <ion-icon slot="start" color="medium" name="person"></ion-icon>
@@ -52,7 +75,7 @@
         <ion-icon slot="start" color="medium"></ion-icon>
         <ion-label>{{ email }}</ion-label>
       </ion-item>
-    <ion-button color="blank" expand="full" class="btn">Cerrar sesion</ion-button>
+    <ion-button color="dark" expand="full">Cerrar sesion</ion-button>
     
   </ion-list>
 

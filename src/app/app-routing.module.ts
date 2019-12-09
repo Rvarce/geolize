@@ -15,6 +15,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'valoracion', loadChildren: './pages/valoracion/valoracion.module#ValoracionPageModule' },
   { path: 'valoracion/:val', loadChildren: './pages/valoracion/valoracion.module#ValoracionPageModule' },
+  { path: 'comentario/:id', loadChildren: './pages/comentario/comentario.module#ComentarioPageModule' },
+
 
 
   //{ path: 'tabsviaje/:id', loadChildren: './tab1/pages/tabsviaje/tabsviaje.module#TabsviajePageModule' }

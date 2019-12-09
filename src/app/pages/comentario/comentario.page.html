@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Comentarios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list lines="none">
+    <ion-item>
+    <ion-thumbnail class="perfil" slot="start"> 
+        <img src="../../assets/img/socialicon.jpg">
+        
+      </ion-thumbnail>
+   
+    
+      <ion-title style="margin-left: 0px;">{{comentario.nombreUsuario}}</ion-title>
+    </ion-item>
+    
+    <ion-item>
+        <div [ngSwitch]="comentario.valoracion">
+            <div *ngSwitchCase="1">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+  
+            </div>
+            <div *ngSwitchCase="2">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+  
+            </div>
+            <div *ngSwitchCase="3">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+  
+            </div>
+            <div *ngSwitchCase="4">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+  
+            </div>
+            <div *ngSwitchCase="5">
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
+  
+            </div>
+            <div *ngSwitchCaseDefault>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-icon name="star-outline"></ion-icon>
+  
+            </div>
+          </div>
+  
+        
+    </ion-item>
+        
+  <ion-item>
+      Fecha de publicacion: {{comentario.fecha}}
+  </ion-item>
+    </ion-list>
+  <div>
+    {{comentario.comentario}}
+  </div>
+
+  <ion-slides pager="true" [options]="slideOpt">
+    <ion-slide *ngFor="let img of imagenes">
+      <img class="image" src="{{img}}">
+    </ion-slide>
+  </ion-slides>
+  
+</ion-content>
